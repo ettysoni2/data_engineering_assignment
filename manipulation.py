@@ -5,8 +5,8 @@ import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-root_dir = r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/spinmaster_data_engineering_assignment"
-data_dir = r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/spinmaster_data_engineering_assignment/raw_data"
+root_dir = r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/data_engineering_assignment"
+data_dir = r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/data_engineering_assignment/raw_data"
 
 os.chdir(data_dir)
 
