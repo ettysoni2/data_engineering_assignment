@@ -5,6 +5,8 @@ import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
+# Reading and transforming the raw data
 root_dir = r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/data_engineering_assignment"
 data_dir = r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/data_engineering_assignment/raw_data"
 
@@ -21,6 +23,9 @@ os.chdir(root_dir)
 data = pd.read_csv('output_file.csv', header=None)
 data.columns = ["state", "gender", "year", "name", "count"]
 
+
+
+# Understanding the data
 print(data.head())
 print(data.shape)
 print(data.info())
@@ -28,10 +33,39 @@ print(data.info())
 data["year"] = data["year"].astype(str)
 
 print(data.describe())
-
 print(data["name"].value_counts().shape)
 
 
+
+# Data checks
+def isnull(data):
+    print(data.isnull().any())
+
+isnull(data)
+
+def check_state_length(data):
+    state_length = data['state'].str.len()
+    state_length = state_length.to_numpy()
+    if((state_length[0] == state_length).all()) == True:
+        print("Check pass")
+    else:
+        print("Data quality issue found")
+
+check_state_length(data)
+
+def check_year_length(data):
+    year_length = data['state'].str.len()
+    year_length = year_length.to_numpy()
+    if((year_length[0] == year_length).all()) == True:
+        print("Check pass")
+    else:
+        print("Data quality issue found")
+
+check_year_length(data)
+
+
+
+# Function to create gender neutral names
 def gender_neutral_names(data):
     """
     Returns gender neutral names
@@ -51,14 +85,9 @@ def gender_neutral_names(data):
 
 gender_neutral_names(data)
 
-# Data checks
 
 
-
-
-
-
-# function to create labeled barplots
+# Function to create labeled barplots
 def labeled_barplot(data, feature, perc=False, n=None):
     """
     Barplot with percentage at the top
@@ -110,14 +139,14 @@ def labeled_barplot(data, feature, perc=False, n=None):
 '''
 What is the split of the gender in the data?
 '''
-# labeled_barplot(data, "gender", perc=True)
+labeled_barplot(data, "gender", perc=True)
 
 '''
 Top 10 states
 '''
-# labeled_barplot(data, "state", perc=True)
+labeled_barplot(data, "state", perc=True)
 
 '''
 Top 10 names
 '''
-# labeled_barplot(data, "name", perc=True, n = 10)
+labeled_barplot(data, "name", perc=True, n = 10)
