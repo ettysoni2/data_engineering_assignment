@@ -24,7 +24,6 @@ data = pd.read_csv('output_file.csv', header=None)
 data.columns = ["state", "gender", "year", "name", "count"]
 
 
-
 # Understanding the data
 print(data.head())
 print(data.shape)
@@ -150,3 +149,7 @@ labeled_barplot(data, "state", perc=True)
 Top 10 names
 '''
 labeled_barplot(data, "name", perc=True, n = 10)
+
+
+# Saving the transformed data to use it in the powerBI dashboard
+data.to_csv(r"/Users/ettys/Library/CloudStorage/OneDrive-SpinMasterLtd/dev/data_engineering_assignment/pbi_input.csv", index=False)
