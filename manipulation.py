@@ -22,6 +22,7 @@ os.chdir(root_dir)
 
 data = pd.read_csv('output_file.csv', header=None)
 data.columns = ["state", "gender", "year", "name", "count"]
+data = data[data["year"] > 2000]
 
 
 # Understanding the data
