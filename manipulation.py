@@ -27,7 +27,6 @@ data = data[data["year"] > 2000]
 
 # Understanding the data
 print(data.head())
-print(data.shape)
 print(data.info())
 
 data["year"] = data["year"].astype(str)
