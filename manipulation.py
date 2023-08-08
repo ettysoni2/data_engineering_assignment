@@ -22,8 +22,6 @@ os.chdir(root_dir)
 
 data = pd.read_csv('output_file.csv', header=None)
 data.columns = ["state", "gender", "year", "name", "count"]
-data = data[data["year"] > 2000]
-
 
 # Understanding the data
 print(data.head())
@@ -32,8 +30,6 @@ print(data.info())
 data["year"] = data["year"].astype(str)
 
 print(data.describe())
-print(data["name"].value_counts().shape)
-
 
 
 # Data checks
